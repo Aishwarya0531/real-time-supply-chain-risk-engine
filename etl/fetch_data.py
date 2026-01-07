@@ -54,7 +54,6 @@ insert_query = """
 INSERT INTO oil_price_raw (price_usd, recorded_at, source)
 VALUES (%s, %s, %s)
 ON CONFLICT (recorded_at, source) DO NOTHING;
-
 """
 
 cursor.execute(
