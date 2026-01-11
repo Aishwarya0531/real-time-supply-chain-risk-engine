@@ -74,3 +74,15 @@ coef_df = pd.DataFrame({
 
 print("\nFeature Impact (Driver Analysis):")
 print(coef_df)
+# ---- RISK ESCALATION CHECK ----
+forecast_volatility = forecast_df["predicted_price"].std()
+historical_volatility = last_row["rolling_volatility_3"]
+
+print("\nRisk Escalation Check:")
+print(f"Recent Historical Volatility: {historical_volatility:.2f}")
+print(f"Forecasted Volatility (7-day): {forecast_volatility:.2f}")
+
+if forecast_volatility > historical_volatility:
+    print("Risk Escalation Expected: YES")
+else:
+    print("Risk Escalation Expected: NO")
