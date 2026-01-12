@@ -14,14 +14,7 @@ CREATE TABLE oil_price_clean (
 );
 INSERT INTO oil_price_raw (price_usd, recorded_at, source)
 VALUES (82.45, '2026-01-05 18:00:00', 'manual_test');
-select * from oil_price_raw;
-CREATE TABLE oil_price_clean (
-    id SERIAL PRIMARY KEY,
-    price_usd NUMERIC(10,2) NOT NULL,
-    recorded_date DATE NOT NULL,
-    source TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+
 INSERT INTO oil_price_clean (price_usd, recorded_date, source)
 SELECT
     price_usd,
@@ -31,9 +24,7 @@ FROM oil_price_raw;
 select * from oil_price_clean;
 SELECT * FROM oil_price_raw
 ORDER BY inserted_at DESC;
-ALTER TABLE oil_price_raw
-ADD CONSTRAINT unique_oil_price_per_day
-UNIQUE (recorded_at, source);
+
 SELECT recorded_at, source, COUNT(*)
 FROM oil_price_raw
 GROUP BY recorded_at, source
