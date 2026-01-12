@@ -5,7 +5,7 @@ An end-to-end data analytics system designed to help businesses anticipate commo
 Instead of analyzing historical data after losses occur, this project ingests live commodity price signals, transforms them into analytical risk metrics using SQL, and delivers actionable insights through an executive Power BI dashboard.
 
 ## Executive Dashboard
-![Supply Chain Risk Dashboard](assets/dashboard.png)
+![Supply Chain Risk Dashboard](assets/dashboard_scre.png)
 
 ## Key Capabilities
 - Live commodity price ingestion via external APIs
